@@ -1,0 +1,25 @@
+// 修改element-plus主题色
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": (
+      "base": #ffba9d,
+    ),
+    "success": (
+      "base": #8bc34a,
+    ),
+    "warning": (
+      "base": #ffc107,
+    ),
+    "danger": (
+      "base": #f56c6c,
+    ),
+    "error": (
+      "base": #ff5722,
+    ),
+    "info": (
+      "base": #888888,
+    ),
+  ),
+);
+
+
