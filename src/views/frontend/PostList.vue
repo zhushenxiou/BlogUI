@@ -9,13 +9,8 @@
     </el-tabs>
 
     <!-- 文章列表 -->
-    <div class="post-grid">
-      <ArticleCard
-        v-for="post in paginatedPosts"
-        :key="post.id"
-        :article="post"
-        @read-more="goToPostDetail($event)"
-      />
+    <div class="post-grid" v-loading="isLoading">
+      <ArticleCard v-for="post in paginatedPosts" :key="post.id" :article="post" @read-more="goToPostDetail($event)" />
     </div>
 
     <!-- 分页插件 -->
@@ -28,7 +23,7 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { getPosts, getCategories } from '@/apis';
-import ArticleCard from '@/components/ArticleCard.vue'; 
+import ArticleCard from '@/components/ArticleCard.vue';
 
 const router = useRouter();
 const posts = ref([]);
@@ -36,6 +31,7 @@ const categories = ref([]);
 const activeCategory = ref('all');
 const currentPage = ref(1);
 const pageSize = ref(9);
+const isLoading = ref();
 
 // 计算总文章数
 const total = computed(() => filteredPosts.value.length);
@@ -56,8 +52,10 @@ const paginatedPosts = computed(() => {
 });
 
 const fetchPosts = async () => {
-  const res = await getPosts({ limit: 100 }); 
+  isLoading.value = true;
+  const res = await getPosts({ limit: 100 });
   posts.value = res.data;
+  isLoading.value = false;
 };
 
 const fetchCategories = async () => {
@@ -78,8 +76,8 @@ const handlePageChange = (page) => {
 };
 
 onMounted(async () => {
-  await fetchPosts();
   await fetchCategories();
+  await fetchPosts();
 });
 </script>
 
@@ -92,7 +90,7 @@ onMounted(async () => {
   display: grid;
   gap: 1rem;
   /* 默认 1 列 */
-  grid-template-columns: repeat(1, 1fr); 
+  grid-template-columns: repeat(1, 1fr);
 }
 
 /* 屏幕宽度大于 800px 时显示 2 列 */

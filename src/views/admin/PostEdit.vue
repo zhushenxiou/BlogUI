@@ -98,9 +98,8 @@ const handleSubmit = () => {
           await createPost(form);
           ElMessage.success('创建成功');
         }
-        router.push('/admin/posts');
       } catch (error) {
-        // 错误处理
+        ElMessage.error('操作失败');
       }
     }
   });

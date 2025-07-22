@@ -5,7 +5,7 @@
       <!-- 最新文章区域 -->
       <section class="latest-posts">
         <div class="title">最新文章</div>
-        <div class="post-grid">
+        <div class="post-grid" v-loading="isLoading">
           <ArticleCard v-for="post in latestPosts" :key="post.id" :article="post"
             @read-more="$router.push(`/posts/${$event}`)" />
         </div>
@@ -29,15 +29,18 @@ import ArticleCard from '@/components/ArticleCard.vue';
 import Sidebar from '@/components/Sidebar.vue'; // 引入侧边栏组件
 
 const latestPosts = ref([]);
+const isLoading = ref()
 
 // 获取最新文章
 const fetchLatestPosts = async () => {
+  isLoading.value = true;
   try {
     const res = await getPosts({ limit: 6 });
     latestPosts.value = res.data;
   } catch (error) {
     console.error('获取最新文章失败:', error);
   }
+  isLoading.value = false;
 };
 
 onMounted(async () => {

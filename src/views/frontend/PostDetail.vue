@@ -1,6 +1,6 @@
 <template>
   <div class="frontend-post-detail">
-    <el-card>
+    <el-card v-loading="isLoading">
       <template #header>
         <div class="title">{{ post.title }}</div>
         <div class="info">
@@ -24,10 +24,13 @@ import MarkdownPreview from '@/components/MarkdownPreview.vue';
 
 const route = useRoute();
 const post = ref({});
+const isLoading = ref()
 
 const fetchPost = async () => {
+  isLoading.value = true;
   const res = await getPostById(route.params.id);
   post.value = res;
+  isLoading.value = false;
 };
 
 onMounted(async () => {
