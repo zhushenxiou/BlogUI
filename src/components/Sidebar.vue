@@ -19,9 +19,12 @@
       </a>
     </div>
     <!-- 自我介绍 -->
-    <p class="introduction">
-      是一枚Web前端开发，喜欢分享技术，分享快乐。
-    </p>
+    <div class="introduction">
+      <p> 是一枚Web前端开发，喜欢分享技术。 </p>
+      <p> 前端：HTML、CSS、JS、Vue </p>
+      <p> 后端：Spring Boot、Express、Egg.js </p>
+      <p> 数据库：MySQL、MongoDB </p>
+    </div>
   </aside>
 </template>
 
@@ -31,6 +34,7 @@
   border-radius: 1rem;
   text-align: center;
   border: 1px solid var(--border-color);
+  max-width: 20rem;
 }
 
 .avatar-container {
@@ -63,6 +67,11 @@
 }
 
 .introduction {
-  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  p{
+    color: var(--text-color);
+  }
 }
 </style>
