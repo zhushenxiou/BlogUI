@@ -31,7 +31,7 @@ const routes = [
       },
       {
         path: "about",
-        component: () => import("@/views/frontend/About.vue"),
+        component: () => import("@/views/frontend/About/index.vue"),
         meta: { title: "关于" },
       },
     ],
