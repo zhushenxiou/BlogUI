@@ -1,5 +1,5 @@
 <template>
-  <p style="font-size: 2rem;">
+  <p style="font-size: 2rem; min-height: 2rem;">
     <span>{{ typedText }}</span>
     <span class="cursor" :class="{ 'blink': isTyping || isEnd }"></span>
   </p>
@@ -80,7 +80,7 @@ onUnmounted(() => {
   display: inline-block;
   width: 2px;
   height: 1em;
-  background-color: #000;
+  background-color: var(--text-select-color);
   margin-left: 2px;
   vertical-align: text-bottom;
 }

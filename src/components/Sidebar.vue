@@ -21,9 +21,6 @@
     <!-- 自我介绍 -->
     <div class="introduction">
       <p> 是一枚Web前端开发，喜欢分享技术。 </p>
-      <p> 前端：HTML、CSS、JS、Vue </p>
-      <p> 后端：Spring Boot、Express、Egg.js </p>
-      <p> 数据库：MySQL、MongoDB </p>
     </div>
   </aside>
 </template>
