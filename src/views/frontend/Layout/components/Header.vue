@@ -21,7 +21,7 @@
     </nav>
     <!-- 在移动端隐藏搜索框 -->
     <div class="search mobile-hidden">
-      <input v-model="searchQuery" placeholder="搜索文章" @keyup.enter="handleSearch" />
+      <input v-model="searchQuery" placeholder="搜索文章" @input="handleInput" />
     </div>
   </div>
 </template>
@@ -33,11 +33,25 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 const searchQuery = ref('');
+let searchTimeout = null;
 
 // 计算当前激活的路径
 const activePath = computed(() => {
   return route.path.split('?')[0];
 });
+
+// 防抖处理的搜索函数
+const handleInput = () => {
+  // 清除之前的定时器
+  if (searchTimeout) {
+    clearTimeout(searchTimeout);
+  }
+  
+  // 设置新的定时器，300ms后执行搜索
+  searchTimeout = setTimeout(() => {
+    handleSearch();
+  }, 300);
+};
 
 const handleSearch = () => {
   if (searchQuery.value.trim()) {

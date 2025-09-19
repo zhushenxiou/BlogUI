@@ -33,7 +33,7 @@ const programList = [
     title: '高仿网易云音乐项目',
     description: ' 本项目由vite+vue3+pinia+ts+element-plus写的高仿网易云音乐，实现了网易云音乐的主要功能。',
     image: 'https://i.imgs.ovh/2025/07/29/2VheX.png',
-    link: 'https://gitee.com/zhu-liang/cloud-music-pc',
+    link: 'https://gitee.com/zhu-liang/music-pc-terminal---front-end',
   },
   {
     title: '宝可梦信息管理系统',

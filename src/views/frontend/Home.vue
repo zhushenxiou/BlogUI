@@ -17,7 +17,7 @@
 
     <!-- 页脚区域 -->
     <footer class="footer">
-      <p>&copy; 2025 我的博客. 保留所有权利.</p>
+      <p>&copy; 2025 MyBlog.</p>
     </footer>
   </div>
 </template>
