@@ -1,7 +1,7 @@
 <template>
-  <div class="search-results">
-    <div class="search-results-title">搜索结果: {{ searchQuery }}</div>
-    <div v-if="searchResults.length > 0" class="post-grid">
+  <div class="p-4">
+    <div class="mb-4 text-2xl font-bold text-[var(--text-selected-color)]">搜索结果: {{ searchQuery }}</div>
+    <div v-if="searchResults.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <ArticleCard
         v-for="post in searchResults"
         :key="post.id"
@@ -52,37 +52,3 @@ watch(
   { immediate: false }
 );
 </script>
-
-<style scoped lang="scss">
-.search-results {
-  padding: 1rem;
-
-  &-title {
-    font-size: 1.5rem;
-    color: var(--text-selected-color);
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-}
-
-.post-grid {
-  display: grid;
-  gap: 1rem;
-  /* 默认 1 列 */
-  grid-template-columns: repeat(1, 1fr); 
-}
-
-/* 屏幕宽度大于 800px 时显示 2 列 */
-@media (min-width: 600px) {
-  .post-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 屏幕宽度大于 1200px 时显示 3 列 */
-@media (min-width: 900px) {
-  .post-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-</style>

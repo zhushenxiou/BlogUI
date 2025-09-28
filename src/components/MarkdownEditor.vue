@@ -1,5 +1,5 @@
 <template>
-  <div ref="vditorRef" class="vditor-wrapper"></div>
+  <div ref="vditorRef" class="w-full border border-[var(--border-color)] rounded-lg"></div>
 </template>
 
 <script setup>
@@ -79,12 +79,3 @@ watch(
   }
 );
 </script>
-
-<style scoped>
-.vditor-wrapper {
-  width: 100%;
-  /* 你可以在这里添加一些自定义样式，比如边框 */
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
-}
-</style>

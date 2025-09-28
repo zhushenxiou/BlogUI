@@ -44,10 +44,6 @@ watchEffect(() => {
         }
       },
     });
-    // 边缘情况处理：如果传入的内容为空，目录也应该被清空
-    if (!markdownContent) {
-      outlineRef.value.innerHTML = '';
-    }
   }
 });
 </script>
@@ -63,12 +59,13 @@ watchEffect(() => {
 .vditor-preview-page {
   display: grid;
   grid-template-columns: 250px 1fr;
+  gap: 1rem;
 
   .outline {
     width: 250px;
     height: calc(100% - 50px);
     overflow: auto;
-    border-right: 1px solid var(--border-color);
+    border-radius: 0.5rem;
     --toolbar-icon-hover-color: var(--el-color-primary);
     --textarea-text-color: var(--el-text-color-primary);
     font-size: 0.8rem;

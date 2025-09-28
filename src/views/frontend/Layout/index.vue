@@ -1,9 +1,9 @@
 <template>
-  <div class="frontend-layout">
+  <div class="h-full bg-[var(--bg-color)] ">
     <!-- 引入 Header 组件 -->
     <Header />
     <!-- 路由视图 -->
-    <div class="container">
+    <div class="h-full mx-auto md:mx-20">
       <router-view />
     </div>
     <Loading v-if="isLoading" />
@@ -42,23 +42,3 @@ onMounted(() => {
   });
 });
 </script>
-
-<style scoped lang="scss">
-.frontend-layout {
-  height: 100%;
-  background-color: var(--bg-color);
-  .container{
-    height: 100%;
-    /* 移动端默认无左右 margin */
-    margin: 0;
-  }
-
-  /* 桌面端样式，假设 768px 以上为桌面端 */
-  @media (min-width: 769px) {
-    .container {
-      margin-left: 5rem;
-      margin-right: 5rem;
-    }
-  }
-}
-</style>

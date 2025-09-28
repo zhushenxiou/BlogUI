@@ -47,7 +47,3 @@ onMounted(async () => {
   await fetchLatestPosts();
 });
 </script>
-
-<style scoped lang="scss">
-/* Tailwind CSS已替换所有样式，此部分为空 */
-</style>

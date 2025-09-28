@@ -1,7 +1,7 @@
 <template>
-  <div class="frontend-post-list">
+  <div class="p-4">
     <!-- 分类名称 tab -->
-    <el-tabs v-model="activeCategory" @tab-click="handleCategoryChange">
+    <el-tabs class="mb-4" v-model="activeCategory" @tab-click="handleCategoryChange">
       <el-tab-pane label="全部" name="all"></el-tab-pane>
       <el-tab-pane v-for="category in categories" :key="category.id" :label="category.name"
         :name="category.id.toString()">
@@ -9,12 +9,12 @@
     </el-tabs>
 
     <!-- 文章列表 -->
-    <div class="post-grid" v-loading="isLoading">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" v-loading="isLoading">
       <ArticleCard v-for="post in paginatedPosts" :key="post.id" :article="post" @read-more="goToPostDetail($event)" />
     </div>
 
     <!-- 分页插件 -->
-    <el-pagination :current-page="currentPage" :page-size="pageSize" :total="total" @current-change="handlePageChange"
+    <el-pagination class="mt-4 text-center" :current-page="currentPage" :page-size="pageSize" :total="total" @current-change="handlePageChange"
       layout="prev, pager, next" />
   </div>
 </template>
@@ -80,39 +80,3 @@ onMounted(async () => {
   await fetchPosts();
 });
 </script>
-
-<style scoped>
-.frontend-post-list {
-  padding: 1rem;
-}
-
-.post-grid {
-  display: grid;
-  gap: 1rem;
-  /* 默认 1 列 */
-  grid-template-columns: repeat(1, 1fr);
-}
-
-/* 屏幕宽度大于 800px 时显示 2 列 */
-@media (min-width: 600px) {
-  .post-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 屏幕宽度大于 1200px 时显示 3 列 */
-@media (min-width: 900px) {
-  .post-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.el-tabs {
-  margin-bottom: 20px;
-}
-
-.el-pagination {
-  margin-top: 20px;
-  text-align: center;
-}
-</style>
