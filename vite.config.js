@@ -24,11 +24,34 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver({ importStyle: "sass" })],
-    })
+    }),
   ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
+  },
+  // 添加构建配置以解决代码块大小问题
+  build: {
+    rollupOptions: {
+      output: {
+        // 手动分割代码块
+        manualChunks(id) {
+          // 将第三方库分割到单独的chunk中
+          if (id.includes("node_modules")) {
+            // 将element-plus相关的依赖单独打包
+            if (id.includes("element-plus")) {
+              return "element-plus";
+            }
+            // 将vue相关的依赖单独打包
+            else if (id.includes("vue") || id.includes("@vue")) {
+              return "vue";
+            }
+            // 其他第三方依赖统一打包
+            return "vendor";
+          }
+        },
+      },
     },
   },
   // server: {
