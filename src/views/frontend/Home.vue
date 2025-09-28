@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <div class="grid grid-cols-[3fr_1fr] gap-8 pt-4 bg-[var(--bg-color)]">
     <!-- 主内容区域，包含文章和分类 -->
-    <div class="main-content">
+    <div>
       <!-- 最新文章区域 -->
-      <section class="latest-posts">
-        <div class="title">最新文章</div>
-        <div class="post-grid" v-loading="isLoading">
+      <section class="m-4">
+        <div class="text-2xl mb-6 text-[var(--text-select-color)]">最新文章</div>
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2" v-loading="isLoading">
           <ArticleCard v-for="post in latestPosts" :key="post.id" :article="post"
             @read-more="$router.push(`/posts/${$event}`)" />
         </div>
@@ -13,10 +13,10 @@
     </div>
 
     <!-- 引入自我介绍侧边栏组件 -->
-    <Sidebar />
+    <Sidebar class="hidden md:block" />
 
     <!-- 页脚区域 -->
-    <footer class="footer">
+    <footer class="col-span-full text-center py-4 text-[var(--text-color)] border-t border-[var(--border-color)]">
       <p>&copy; 2025 MyBlog.</p>
     </footer>
   </div>
@@ -49,69 +49,5 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="scss">
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  /* 左右栏比例 3:1 */
-  gap: 2rem;
-  padding-top: 1rem;
-  background-color: var(--bg-color);
-  grid-template-areas:
-    "main-content sidebar"
-    "footer footer";
-}
-
-.main-content {
-  grid-area: main-content;
-}
-
-.latest-posts {
-  margin: 1rem;
-
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-select-color);
-  }
-
-  .post-grid {
-    display: grid;
-    gap: 1rem;
-    /* 默认 1 列 */
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  /* 屏幕宽度大于 900px 时显示 2 列 */
-  @media (min-width: 900px) {
-    .post-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-.sidebar {
-  grid-area: sidebar;
-}
-
-.footer {
-  grid-area: footer;
-  text-align: center;
-  padding: 1rem 0;
-  color: var(--text-color);
-  border-top: 1px solid var(--border-color);
-}
-
-/* 手机端样式，假设 768px 为移动端阈值 */
-@media (max-width: 768px) {
-  .home {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "main-content"
-      "footer";
-  }
-
-  .sidebar {
-    display: none;
-  }
-}
+/* Tailwind CSS已替换所有样式，此部分为空 */
 </style>

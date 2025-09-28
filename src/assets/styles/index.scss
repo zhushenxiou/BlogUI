@@ -1,6 +1,13 @@
 @use './var.scss';
 @use './element-variables.scss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 /* 全局样式重置 */
 * {
   margin: 0;
