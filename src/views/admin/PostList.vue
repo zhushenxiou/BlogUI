@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <template #header>
-      <div class="card-header">
+      <div class="flex justify-between items-center">
         <span>文章列表</span>
         <el-button type="primary" @click="$router.push('/admin/posts/create')">新建文章</el-button>
       </div>
@@ -83,11 +83,3 @@ const handleDelete = (id) => {
   }).catch(() => {});
 };
 </script>
-
-<style scoped>
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>

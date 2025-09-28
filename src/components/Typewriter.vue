@@ -1,5 +1,5 @@
 <template>
-  <p style="font-size: 2rem; min-height: 2rem;">
+  <p style="font-size: 1.5rem; min-height: 1.5rem;">
     <span>{{ typedText }}</span>
     <span class="cursor" :class="{ 'blink': isTyping || isEnd }"></span>
   </p>

@@ -1,5 +1,5 @@
 <template>
-  <aside class="max-w-[20rem] border border-[var(--border-color)] text-center p-4 rounded-lg">
+  <aside class="w-[20rem] min-h-[20rem] border border-[var(--border-color)] text-center p-4 rounded-lg">
     <!-- 头像 -->
     <div class="flex justify-center mb-4">
       <img class="w-[100px] h-[100px] rounded-full object-cover" src="@/assets/imgs/avatar.webp" alt="头像">

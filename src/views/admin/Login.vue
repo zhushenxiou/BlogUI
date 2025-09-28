@@ -1,8 +1,8 @@
 <template>
-  <div class="login-container">
-    <el-card class="login-card">
+  <div class="flex justify-center items-center h-lvh bg-orange-50">
+    <el-card class="w-[360px]">
       <template #header>
-        <div class="card-header">
+        <div class="text-center text-2xl">
           <span>后台管理登录</span>
         </div>
       </template>
@@ -64,22 +64,3 @@ const handleLogin = async () => {
   });
 };
 </script>
-
-<style scoped>
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f2f5;
-}
-
-.login-card {
-  width: 22rem;
-}
-
-.card-header {
-  text-align: center;
-  font-size: 20px;
-}
-</style>

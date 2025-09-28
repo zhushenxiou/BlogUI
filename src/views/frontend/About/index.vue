@@ -1,15 +1,19 @@
 <template>
-  <div class="frontend-about">
-    <div class="header">
-      <div class="info">
+  <div class="p-5">
+    <div class="flex justify-between h-[20rem]">
+      <!-- 打字机 -->
+      <div class="flex flex-col gap-4">
         <Typewriter :texts="aboutTexts" :speed="150" :pauseBetweenTexts="2500" />
-        <p>学无止境，保持学习100年。</p>
+        <p class="text-md">学无止境，保持学习100年。</p>
       </div>
-      <Sidebar class="desktop-sidebar" />
+      <!-- 侧边栏 -->
+      <Sidebar class="hidden md:block" />
     </div>
-    <div class="myProgram">
-      <div class="title">我的项目</div>
-      <div class="list">
+
+    <!-- 我的项目 -->
+    <div class="mt-2">
+      <div class="text-2xl font-bold mb-6">我的项目</div>
+      <div class="grid items-center grid-cols-1 lg:grid-cols-2 gap-6">
         <Card v-for="item in programList" :key="item.title" :title="item.title" :description="item.description"
           :image="item.image" :link="item.link" />
       </div>
@@ -43,62 +47,3 @@ const programList = [
   },
 ]
 </script>
-
-<style scoped lang="scss">
-.frontend-about {
-  padding: 20px;
-
-  .header {
-    display: flex;
-    height: 20rem;
-    justify-content: space-between;
-
-    .info {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      p {
-        font-size: 1.2rem;
-      }
-    }
-
-    // 桌面端侧边栏样式
-    .desktop-sidebar {
-      display: block;
-    }
-  }
-
-  .myProgram {
-    .title {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 1.5rem;
-    }
-
-    .list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem;
-    }
-  }
-
-  // 移动端媒体查询
-  @media (max-width: 768px) {
-    .header {
-      .desktop-sidebar {
-        display: none; // 隐藏侧边栏
-      }
-    }
-
-    .myProgram {
-      .list {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        justify-items: center;
-      }
-    }
-  }
-}
-</style>

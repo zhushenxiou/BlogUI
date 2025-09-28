@@ -3,7 +3,7 @@
     <template #header>
       <span>{{ isEdit ? '编辑文章' : '新建文章' }}</span>
     </template>
-    <el-form :model="form" :rules="rules" ref="formRef" label-width="80px">
+    <el-form :model="form" :rules="rules" ref="formRef" label-width="50px">
       <el-row :gutter="20">
         <!-- 标题占 18 列，即 75% 宽度 -->
         <el-col :span="18">
@@ -28,7 +28,7 @@
       </el-form-item>
     </el-form>
     
-    <div class="operation">
+    <div class="mt-4 text-center">
       <el-button type="primary" @click="handleSubmit">保存</el-button>
       <el-button @click="$router.back()">返回</el-button>
     </div>
@@ -107,10 +107,6 @@ const handleSubmit = () => {
 </script>
 
 <style scoped>
-.operation {
-  margin-top: 20px;
-  text-align: center;
-}
 /* 修复 el-form-item 下编辑器高度问题 */
 .el-form-item__content {
   line-height: normal;

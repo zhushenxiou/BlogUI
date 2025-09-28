@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-[3fr_1fr] gap-8 pt-4 bg-[var(--bg-color)]">
+  <div class="grid lg:grid-cols-[3fr_1fr] gap-8 pt-4 bg-[var(--bg-color)]">
     <!-- 主内容区域，包含文章和分类 -->
     <div>
       <!-- 最新文章区域 -->
@@ -13,7 +13,7 @@
     </div>
 
     <!-- 引入自我介绍侧边栏组件 -->
-    <Sidebar class="hidden md:block" />
+    <Sidebar class="hidden lg:block" />
 
     <!-- 页脚区域 -->
     <footer class="col-span-full text-center py-4 text-[var(--text-color)] border-t border-[var(--border-color)]">
